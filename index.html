@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .charm {
+            width: 160px;
+            margin: 0 auto;
+            transform-origin: top center;
+            animation: swing 4s ease-in-out infinite;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .cord {
+            width: 3px;
+            height: 150px;
+            margin: auto;
+            background: #246BCE;
+            border-radius: 50%;
+        }
+
+        .charm-icon {
+            text-align: center;
+            font-size: 75px;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .charm:hover .charm-icon {
+            transform: scale(1.08);
+        }
+
+        .charm.clicked .charm-icon {
+            animation: clickReaction 0.45s ease;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(-4deg);
+            }
+
+            50% {
+                transform: rotate(4deg);
+            }
+
+            100% {
+                transform: rotate(-4deg);
+            }
+        }
+
+        @keyframes clickReaction {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1.18) rotate(-8deg);
+            }
+
+            60% {
+                transform: scale(0.95) rotate(6deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="charm" id="charm">
+
+        <div class="cord"></div>
+
+        <div class="charm-icon">🧿</div>
+
+    </div>
+<!---->
+    <script>
+        const charm = document.getElementById("charm");
+
+        charm.addEventListener("click", () => {
+            charm.classList.remove("clicked");
+
+            void charm.offsetWidth;
+
+            charm.classList.add("clicked");
+        });
+    </script>
+
+</body>
+</html>
